@@ -1,16 +1,41 @@
-# lab-flask
+# Prediction Check Application
 
-<!-- ![image](https://user-images.githubusercontent.com/115451707/196919992-edcfea8b-e3f6-4f35-9398-43be66b5622d.png) -->
+## Run the Streamlit frontend
 
+Open PowerShell in the project folder and run:
 
-To run flask application 
-
+```powershell
+cd "c:\Users\Mayank Verma\OneDrive\Desktop\ml\Prediction_Check_applicatiion"
+.\myenv\Scripts\Activate.ps1
+streamlit run templates\home.py
 ```
-python app.py
+
+Then open the local URL shown in the terminal, usually:
+
+```text
+http://localhost:8501
 ```
 
+## Integration status
 
-To access your flask application open new tab in and paste the url:
-```
-https://{your_url}.pwskills.app:5000/
+The active frontend is `templates/home.py`.
+It is directly connected to:
+
+- `models/ridge.pkl`
+- `models/scaler.pkl`
+
+When you submit the form, Streamlit:
+
+1. converts the selected class and region into numeric values
+2. builds a dataframe in the correct feature order
+3. scales the values with `scaler.pkl`
+4. predicts FWI with `ridge.pkl`
+
+## Notes
+
+- `application.py` is a separate Flask app and is not the frontend you should run for this setup.
+- If PowerShell blocks activation, run:
+
+```powershell
+Set-ExecutionPolicy -Scope Process Bypass
 ```
