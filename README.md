@@ -5,7 +5,6 @@
 Open PowerShell in the project folder and run:
 
 ```powershell
-cd "c:\Users\Mayank Verma\OneDrive\Desktop\ml\Prediction_Check_applicatiion"
 .\myenv\Scripts\Activate.ps1
 streamlit run templates\home.py
 ```
